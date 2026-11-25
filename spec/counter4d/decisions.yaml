@@ -1,0 +1,55 @@
+decisions:
+  - id: ADR-01
+    date: 2026-11-25
+    status: proposed
+    title: "Interface described as one level-class IDD, count_if"
+    req_ids: [REQ-3.1.1, REQ-3.1.2]
+    context: "The block has no bus; the package needs an IDD for its four ports."
+    alternatives: ["One IDD with protocol_class level", "No IDD"]
+    decision: "idd/count_if.yaml holds clk, rst_n, en, count; scan ports excluded."
+    decided_by: {actor_ref: faizan@chipmango.com, role: adr}
+  - id: ADR-02
+    date: 2026-11-25
+    status: proposed
+    title: "Output before the first reset edge is unspecified"
+    req_ids: [REQ-3.1.1]
+    context: "The brief gives behaviour only at clock edges."
+    alternatives: ["Specify a power-up value", "Leave unspecified; reset defines the state"]
+    decision: "Simplest: unspecified until the first rising edge with rst_n at 0."
+    decided_by: {actor_ref: faizan@chipmango.com, role: adr}
+  - id: ADR-03
+    date: 2026-11-25
+    status: proposed
+    title: "DFT brief carried by REQ-3.2.1 and scan_notes, no dft.yaml"
+    req_ids: [REQ-3.2.1]
+    context: "The package file list has no DFT document."
+    alternatives: ["Add dft.yaml", "Use a requirement and scan_notes"]
+    decision: "Requirement REQ-3.2.1 plus scan_notes; coverage targets are platform defaults, no number invented."
+    decided_by: {actor_ref: faizan@chipmango.com, role: adr}
+  - id: ADR-04
+    date: 2026-11-25
+    status: proposed
+    title: "No area budget"
+    req_ids: [REQ-3.3.1]
+    context: "The brief gives utilisation and corners as flow defaults, no area."
+    alternatives: ["Invent a budget", "not_applicable"]
+    decision: "area_budget not_applicable; flow defaults used."
+    decided_by: {actor_ref: faizan@chipmango.com, role: adr}
+  - id: ADR-05
+    date: 2026-11-25
+    status: proposed
+    title: "Board rail currents and nominal voltages"
+    req_ids: [REQ-3.3.1]
+    context: "The brief lists rails but gives no currents."
+    alternatives: ["Ask the person", "Pick round, generous values"]
+    decision: "VBUS, VBUS_F, +5V at 5.0 V nominal, 100 mA; VDD_1V8 at 1.8 V, 50 mA. Fuse and diode drop are left to Emeka's analysis."
+    decided_by: {actor_ref: faizan@chipmango.com, role: adr}
+  - id: ADR-06
+    date: 2026-11-25
+    status: proposed
+    title: "1.8 V LDO and chip are outside the board standard"
+    req_ids: [REQ-3.3.1]
+    context: "The standard has only a 3.3 V LDO; the brief fixes 1.8 V and a person supplies the Device Models."
+    alternatives: ["Use the 3.3 V LDO", "Keep 1.8 V as the brief says and name the gap"]
+    decision: "Keep 1.8 V; BRS-9 names the gap and the Device Models supplied at board/counter4d_eval/."
+    decided_by: {actor_ref: faizan@chipmango.com, role: adr}

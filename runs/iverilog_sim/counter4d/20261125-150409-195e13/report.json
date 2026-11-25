@@ -1,0 +1,49 @@
+{
+  "kind": "sim",
+  "schema_version": 2,
+  "tool": "iverilog_sim",
+  "block": "counter4d",
+  "inputs": [
+    {
+      "path": "rtl/counter4d.sv",
+      "version": 5,
+      "sha256": "sha256:c4632c7f6b715b44fc288a63223978d9cedbcdd5fe0f3cc827a72b84415a0fe3"
+    },
+    {
+      "path": "tb/tb_counter4d.sv",
+      "version": 1,
+      "sha256": "sha256:b40f45df83c9a550a55ce1f45ecd3661e923609901ddefa6f5cce30f572f9d9d"
+    }
+  ],
+  "timed_out": false,
+  "stopped": "",
+  "image": "quest-eda-tools:2026.11.1",
+  "tool_version": "",
+  "simulator": "icarus",
+  "testbench": "tb_counter4d",
+  "compiled": true,
+  "compile_errors": [],
+  "compile_warning_count": 1,
+  "compile_failure": "",
+  "finished": true,
+  "end_time": 316000,
+  "passed": true,
+  "first_failure": null,
+  "mismatches": 0,
+  "assertion_errors": 0,
+  "errors": [],
+  "assertion_failures": null,
+  "coverage": null,
+  "seed": 719825415,
+  "framework": "sv",
+  "test_module": "",
+  "toplevel": "",
+  "seeds": [],
+  "functional_groups": [],
+  "fsms": [],
+  "fsm_source": "",
+  "fsm_note": "",
+  "simulator_version": "",
+  "reproduction": false,
+  "closure": null
+}

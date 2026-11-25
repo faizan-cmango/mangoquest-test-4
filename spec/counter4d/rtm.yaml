@@ -1,0 +1,14 @@
+rtm: spec/counter4d/rtm.yaml@v0.1
+block: counter4d
+requirements:
+  - {id: REQ-3.1.1, section: "3.1", owner: kemi, risk: LOW, verif_method: simulation, source: {list: brief, entry: 1}, text: "At every rising edge of clk while rst_n is 0, count shall become 0."}
+  - {id: REQ-3.1.2, section: "3.1", owner: kemi, risk: LOW, verif_method: simulation, source: {list: brief, entry: 2}, text: "At a rising edge of clk while rst_n is 1 and en is 1 and count is below 15, count shall become its previous value plus 1."}
+  - {id: REQ-3.1.3, section: "3.1", owner: kemi, risk: LOW, verif_method: simulation, source: {list: brief, entry: 2}, text: "At a rising edge of clk while rst_n is 1 and en is 0, count shall keep its value."}
+  - {id: REQ-3.1.4, section: "3.1", owner: kemi, risk: LOW, verif_method: simulation, source: {list: brief, entry: 2}, text: "At a rising edge of clk while rst_n is 0, count shall become 0 whatever the value of en."}
+  - {id: REQ-3.1.5, section: "3.1", owner: kemi, risk: LOW, verif_method: simulation, source: {list: brief, entry: 2}, text: "At a rising edge of clk while rst_n is 1 and en is 1 and count is 15, count shall become 0."}
+  - {id: REQ-3.1.6, section: "3.1", owner: kemi, risk: LOW, verif_method: simulation, source: {list: brief, entry: 1}, text: "count shall change only at a rising edge of clk, with a clock period of 10 ns."}
+  - {id: REQ-3.2.1, section: "3.2", owner: tola, risk: LOW, verif_method: inspection, source: {list: brief, entry: 3}, evidence: "DFT report: full scan, one chain, mux-D flops, stuck-at and transition fault coverage at the platform default targets.", text: "The scan-inserted design shall have full scan on one scan chain with mux-D flops and shall meet the platform default stuck-at and transition coverage targets."}
+  - {id: REQ-3.3.1, section: "3.3", owner: seun, risk: LOW, verif_method: inspection, source: {list: brief, entry: 4}, evidence: "Floorplan and flow report: sky130_fd_sc_hd, default utilisation and corners, no macros, pin sides as sad.yaml pin_intent.", text: "The layout shall use sky130 with sky130_fd_sc_hd cells, no macros and no IO ring, with the pins on the sides given in sad.yaml pin_intent."}
+  - {id: REQ-3.4.1, section: "3.4", owner: dayo, risk: LOW, verif_method: inspection, source: {list: brief, entry: 5}, evidence: "Testbench review: clock starts low, inputs driven only at falling edges, same bench runs unchanged on the gate-level netlist.", text: "The testbench shall start clk low, drive inputs only at falling edges of clk and never in the timestep of a rising edge."}
+  - {id: REQ-3.4.2, section: "3.4", owner: dayo, risk: LOW, verif_method: simulation, source: {list: brief, entry: 5}, text: "Functional coverage shall hit every count value 0 to 15 and the wrap from 15 to 0."}
+retired: {}
